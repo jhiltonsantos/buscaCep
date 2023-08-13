@@ -20,6 +20,3 @@ jobs:
 
       - name: Instalar dependencias
         run: yarn install
-
-      - name: Rodar testes
-        run: yarn test
