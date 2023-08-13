@@ -1,12 +1,12 @@
 import React from 'react';
-import {FormControl, ITextProps, Text, Input} from 'native-base';
-import {useVisibilidadeSenha} from '../../hooks/useVisibilidadeSenha';
-import {Pressable, Image} from 'react-native';
+import { FormControl, ITextProps, Text, Input } from 'native-base';
+import { useVisibilidadeSenha } from '../../hooks/useVisibilidadeSenha';
+import { Pressable, Image } from 'react-native';
 
-import EyeIconOpen from '../../assets/icons/eye-open.svg';
-import EyeIconClose from '../../assets/icons/eye-close.svg';
+import EyeOpenIcon from '../../assets/icons/eye-open.svg';
+import EyeCloseIcon from '../../assets/icons/eye-close.svg';
 
-import {styles} from './styles';
+import { styles } from './styles';
 
 interface InputProps extends ITextProps {
   labelText: string;
@@ -23,7 +23,7 @@ export function InputComponent({
   onChangeText,
   textoDeSenha = false,
 }: InputProps): JSX.Element {
-  const {senhaVisibilidade, iconeDireita, mudarVisibilidadeSenha} =
+  const { senhaVisibilidade, iconeDireita, mudarVisibilidadeSenha } =
     useVisibilidadeSenha();
 
   const EyeIcon = iconeDireita === 'mostrar' ? true : false;
@@ -31,9 +31,9 @@ export function InputComponent({
   const iconeSenha = textoDeSenha ? (
     <Pressable onPress={mudarVisibilidadeSenha} style={styles.pressable}>
       {EyeIcon ? (
-        <EyeIconClose width={24} height={24} />
+        <EyeCloseIcon width={24} height={24} />
       ) : (
-        <EyeIconOpen width={24} height={24} />
+        <EyeOpenIcon width={24} height={24} />
       )}
     </Pressable>
   ) : (

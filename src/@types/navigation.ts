@@ -1,11 +1,12 @@
-import {RouteProp} from '@react-navigation/native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import { RouteProp } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { EnderecoCep } from '../interfaces/enderecoCep';
 
 export type ScreenList = {
   Login: undefined;
   Inicio: undefined;
   EditarEndereco: undefined;
-  DetalhesEndereco: undefined;
+  DetalhesEndereco: { endereco: EnderecoCep; enderecoEditado: boolean };
 };
 
 export type NavigationProps<T extends keyof ScreenList> = {
