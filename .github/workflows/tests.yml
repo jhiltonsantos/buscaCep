@@ -1,9 +1,10 @@
 name: "CI (Interação Continua): Testes"
 
 on:
+  push:
+    branches: [ "develop", "staging"]
   pull_request:
-    branches:
-      - develop
+    branches: [ "develop", "staging"]
 
 jobs:
   test:
