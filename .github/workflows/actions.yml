@@ -1,11 +1,10 @@
-name: "Actions terminal"
+name: 'Actions terminal'
 
 on:
   push:
-    branches: [ "develop", "staging"]
+    branches: ['develop', 'staging']
   pull_request:
-    branches: [ "develop", "staging"]
-      
+    branches: ['develop', 'staging']
 
 jobs:
   test:
@@ -17,4 +16,3 @@ jobs:
 
       - name: Rodar um echo
         run: echo actions message
-
