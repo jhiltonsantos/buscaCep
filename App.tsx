@@ -1,7 +1,6 @@
-import React from 'react';
-import {NativeBaseProvider, StatusBar} from 'native-base';
+import { NativeBaseProvider, StatusBar } from 'native-base';
 
-import {THEMES} from './src/config/theme';
+import { THEMES } from './src/config/theme';
 import Routes from './src/routes';
 
 export default function App() {
