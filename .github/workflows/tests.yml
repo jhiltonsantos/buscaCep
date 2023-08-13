@@ -19,5 +19,8 @@ jobs:
         with:
           node-version: 16
 
-      - name: Instalar dependencias
+      - name: Instalando dependencias
         run: yarn install
+      
+      - name: Executanto testes com jest
+        run: yarn test
