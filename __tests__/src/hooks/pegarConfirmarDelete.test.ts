@@ -1,5 +1,5 @@
 import {renderHook, act} from '@testing-library/react-hooks';
-import {pegarConfirmarDelete} from '../../../src/hooks/pegarConfirmarDelete';
+import {pegarConfirmarDelete} from '../../../src/hooks/useConfirmarDelete';
 
 describe('Hook pegarConfirmarDelete', () => {
   it('Caso inicialize bottomSheetVisivel como false', () => {

@@ -1,30 +1,20 @@
-import { Box, VStack } from "native-base";
-import { LogoComponent } from "../../components/LogoComponent";
-import { SubtituloComponent } from "../../components/SubtituloComponent";
-import { InputComponent } from "../../components/InputComponent";
-import { ButtonPrimaryComponent } from "../../components/ButtonPrimaryComponent";
+import {Box, VStack} from 'native-base';
 
-export default function Login({ navigation }: any) {
+import {LogoComponent} from '../../components/LogoComponent';
+import {SubtituloComponent} from '../../components/SubtituloComponent';
+import {InputComponent} from '../../components/InputComponent';
+import {ButtonPrimaryComponent} from '../../components/ButtonPrimaryComponent';
+
+import {styles} from './styles';
+
+export default function Login({navigation}: any) {
   return (
-    <VStack
-      backgroundColor="background"
-      flex={1}
-      alignItems="center"
-      justifyContent="center"
-      padding={5}
-    >
-      <LogoComponent
-        marginTop={20}
-      />
+    <VStack style={styles.container}>
+      <LogoComponent marginTop={20} />
 
-      <SubtituloComponent
-        marginTop={3}
-      />
+      <SubtituloComponent marginTop={3} />
 
-      <Box
-        marginTop={20}
-        marginBottom={20}
-      >
+      <Box marginTop={20} marginBottom={20}>
         <InputComponent
           labelText="Usuário"
           placeholderText="Digite o nome do usuário"
@@ -37,12 +27,10 @@ export default function Login({ navigation }: any) {
         />
       </Box>
 
-
       <ButtonPrimaryComponent
-        buttonText={"Entrar"}
+        buttonText={'Entrar'}
         onPress={() => navigation.navigate('Inicio')}
       />
     </VStack>
-  )
+  );
 }
-

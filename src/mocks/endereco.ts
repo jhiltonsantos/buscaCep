@@ -31,6 +31,4 @@ const enderecoMock = [
   },
 ];
 
-export { enderecoMock }
-
-
+export {enderecoMock};

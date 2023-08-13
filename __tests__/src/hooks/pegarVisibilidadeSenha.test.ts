@@ -1,5 +1,5 @@
 import {renderHook, act} from '@testing-library/react-hooks';
-import {pegarVisibilidadeSenha} from '../../../src/hooks/pegarVisibilidadeSenha';
+import {pegarVisibilidadeSenha} from '../../../src/hooks/useVisibilidadeSenha';
 
 describe('Hook pegarVisibilidadeSenha', () => {
   it('A senha deve estar visivel e o icone deve ser o mostrar', () => {
@@ -14,7 +14,7 @@ describe('Hook pegarVisibilidadeSenha', () => {
 
     act(() => {
       result.current.mudarVisibilidadeSenha();
-    })
+    });
 
     expect(result.current.senhaVisibilidade).toBe(false);
     expect(result.current.iconeDireita).toBe('esconder');

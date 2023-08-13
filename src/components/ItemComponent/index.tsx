@@ -1,38 +1,22 @@
-import { ITextProps, Text, VStack, View } from 'native-base';
+import {ITextProps, Text, VStack, View} from 'native-base';
+import {styles} from './styles';
 
 interface ItemProps extends ITextProps {
-  tituloText: string
-  dadoText: string
-  onChangeText?: (text: string) => void
+  tituloText: string;
+  dadoText: string;
+  onChangeText?: (text: string) => void;
 }
 
-
-export function ItemComponent({ tituloText, dadoText }: ItemProps): JSX.Element {
+export function ItemComponent({tituloText, dadoText}: ItemProps): JSX.Element {
   return (
-    <VStack
-      flexDir="row"
-      alignItems="center"
-    >
-      <View
-        flexDirection="row"
-        alignItems="center"
-      >
-        <Text color="gray.800" fontSize="md" fontWeight="medium">
-          {tituloText}
-        </Text>
+    <VStack style={styles.containerHorizontal}>
+      <View style={styles.containerHorizontal}>
+        <Text style={styles.tituloText}>{tituloText}</Text>
       </View>
 
-      <View
-        flex={1}
-        alignItems="flex-end"
-      >
-        <Text
-          color="gray.500"
-          fontWeight="normal"
-        >
-          {dadoText}
-        </Text>
+      <View style={styles.view}>
+        <Text style={styles.dadoText}>{dadoText}</Text>
       </View>
     </VStack>
-  )
+  );
 }

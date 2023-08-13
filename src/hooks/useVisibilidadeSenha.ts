@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import {useState} from 'react';
 
-export const pegarVisibilidadeSenha = () => {
+export const useVisibilidadeSenha = () => {
   const [senhaVisibilidade, setSenhaVisibiliade] = useState(true);
   const [iconeDireita, setIconeDireita] = useState('mostrar');
 
@@ -14,5 +14,5 @@ export const pegarVisibilidadeSenha = () => {
     }
   };
 
-  return { senhaVisibilidade, iconeDireita, mudarVisibilidadeSenha };
+  return {senhaVisibilidade, iconeDireita, mudarVisibilidadeSenha};
 };

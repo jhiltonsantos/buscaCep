@@ -1,14 +1,15 @@
-import {useState} from 'react';
+import { useState } from 'react';
 
-export function pegarConfirmarDelete({navigation}: any) {
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+export function useConfirmarDelete({ navigation }: any) {
   const [bottomSheetVisivel, setBottomSheetVisivel] = useState(false);
 
-  const handleDeletar = () => {
+  const handleDeletar = (): undefined => {
     navigation.goBack();
     setBottomSheetVisivel(false);
   };
 
-  const handleCancelar = () => {
+  const handleCancelar = (): undefined => {
     setBottomSheetVisivel(false);
   };
 

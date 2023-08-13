@@ -6,6 +6,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "start": "react-native start",
     "test": "jest"
   },
@@ -28,13 +29,13 @@
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "^3.24.0",
     "react-native-svg": "^13.11.0",
+    "react-native-svg-uri": "^1.2.3",
     "react-native-vector-icons": "^10.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@babel/preset-env": "^7.22.10",
     "@babel/runtime": "^7.20.0",
-    "@react-native/eslint-config": "^0.72.2",
     "@react-native/metro-config": "^0.72.9",
     "@testing-library/react": "^14.0.0",
     "@testing-library/react-hooks": "^8.0.1",
@@ -43,13 +44,24 @@
     "@types/jest": "^29.5.3",
     "@types/react": "^18.0.24",
     "@types/react-test-renderer": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.3.0",
+    "@typescript-eslint/parser": "^6.3.0",
     "babel-jest": "^29.6.2",
-    "eslint": "^8.19.0",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-config-standard-with-typescript": "^37.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-prettier": "5.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.33.1",
+    "eslint-plugin-react-native": "^4.0.0",
     "jest": "^29.6.2",
     "metro-react-native-babel-preset": "0.76.7",
-    "prettier": "^2.4.1",
+    "prettier": "^3.0.1",
+    "react-native-svg-transformer": "^1.1.0",
     "react-test-renderer": "18.2.0",
-    "typescript": "4.8.4"
+    "typescript": "*"
   },
   "engines": {
     "node": ">=16"

@@ -1,5 +1,5 @@
 const subtitulo = {
-    text: "Encontre o endereço desejado"
-}
+  text: 'Encontre o endereço desejado',
+};
 
 export default subtitulo;
