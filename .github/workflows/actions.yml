@@ -1,4 +1,4 @@
-name: 'Actions terminal'
+name: 'Actions: Comandos no Terminal'
 
 on:
   push:
@@ -7,12 +7,12 @@ on:
     branches: ['develop', 'staging']
 
 jobs:
-  test:
+  terminal:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Rodar um echo
-        run: echo actions message
+      - name: Executando comandos terminal
+        run: echo Inciando Actions
