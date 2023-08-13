@@ -1,11 +1,12 @@
 import React from 'react';
-import { FormControl, ITextProps, Text, Input } from 'native-base';
-import { pegarVisibilidadeSenha } from '../../hooks/pegarVisibilidadeSenha';
-import { Pressable, Image } from 'react-native';
+import {FormControl, ITextProps, Text, Input} from 'native-base';
+import {useVisibilidadeSenha} from '../../hooks/useVisibilidadeSenha';
+import {Pressable, Image} from 'react-native';
 
-import eyeIconOpen from '../../assets/images/preview-open.png';
-import eyeIconClose from '../../assets/images/preview-close.png';
-import { styles } from './styles';
+import EyeIconOpen from '../../assets/icons/eye-open.svg';
+import EyeIconClose from '../../assets/icons/eye-close.svg';
+
+import {styles} from './styles';
 
 interface InputProps extends ITextProps {
   labelText: string;
@@ -22,33 +23,32 @@ export function InputComponent({
   onChangeText,
   textoDeSenha = false,
 }: InputProps): JSX.Element {
+  const {senhaVisibilidade, iconeDireita, mudarVisibilidadeSenha} =
+    useVisibilidadeSenha();
 
-  const { senhaVisibilidade, iconeDireita, mudarVisibilidadeSenha } = pegarVisibilidadeSenha();
-
-  const EyeIcon = iconeDireita === 'mostrar' ? eyeIconClose : eyeIconOpen;
+  const EyeIcon = iconeDireita === 'mostrar' ? true : false;
 
   const iconeSenha = textoDeSenha ? (
     <Pressable onPress={mudarVisibilidadeSenha} style={styles.pressable}>
-      <Image
-        source={EyeIcon}
-        style={styles.imageIcon}
-      />
+      {EyeIcon ? (
+        <EyeIconClose width={24} height={24} />
+      ) : (
+        <EyeIconOpen width={24} height={24} />
+      )}
     </Pressable>
-  ) : <></>;
+  ) : (
+    <></>
+  );
 
   return (
     <FormControl>
       <FormControl.Label>
-        <Text fontSize="md" fontWeight="medium" color="gray.800">
-          {labelText}
-        </Text>
+        <Text style={styles.labelText}>{labelText}</Text>
       </FormControl.Label>
       <Input
-        placeholder={placeholderText}
-        size="lg"
         width="100%"
-        borderRadius="lg"
-        backgroundColor="white"
+        style={styles.input}
+        placeholder={placeholderText}
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={textoDeSenha ? senhaVisibilidade : false}
@@ -57,5 +57,3 @@ export function InputComponent({
     </FormControl>
   );
 }
-
-

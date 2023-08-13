@@ -1,15 +1,15 @@
-import {renderHook, act} from '@testing-library/react-hooks';
-import {pegarConfirmarDelete} from '../../../src/hooks/pegarConfirmarDelete';
+import { renderHook, act } from '@testing-library/react-hooks';
+import { useConfirmarDelete } from '../../../src/hooks/useConfirmarDelete';
 
 describe('Hook pegarConfirmarDelete', () => {
   it('Caso inicialize bottomSheetVisivel como false', () => {
-    const {result} = renderHook(() => pegarConfirmarDelete({}));
+    const { result } = renderHook(() => useConfirmarDelete({}));
 
     expect(result.current.bottomSheetVisivel).toBe(false);
   });
 
   it('Caso inicialize bottomSheetVisivel como true quando setBottomSheetVisivel for true', () => {
-    const {result} = renderHook(() => pegarConfirmarDelete({}));
+    const { result } = renderHook(() => useConfirmarDelete({}));
 
     act(() => {
       result.current.setBottomSheetVisivel(true);
@@ -19,7 +19,7 @@ describe('Hook pegarConfirmarDelete', () => {
   });
 
   it('Caso bottomSheetVisivel como false quando setBottomSheetVisivel for chamado como false', () => {
-    const {result} = renderHook(() => pegarConfirmarDelete({}));
+    const { result } = renderHook(() => useConfirmarDelete({}));
 
     act(() => {
       result.current.setBottomSheetVisivel(false);
@@ -29,8 +29,8 @@ describe('Hook pegarConfirmarDelete', () => {
   });
 
   it('Chamando o navigation.goBack() e colocando bottomSheetVisivel como falso ao executar handleDeletar()', () => {
-    const navigation = {goBack: jest.fn()};
-    const {result} = renderHook(() => pegarConfirmarDelete({navigation}));
+    const navigation = { goBack: jest.fn() };
+    const { result } = renderHook(() => useConfirmarDelete({ navigation }));
 
     act(() => {
       result.current.setBottomSheetVisivel(true);
@@ -42,7 +42,7 @@ describe('Hook pegarConfirmarDelete', () => {
   });
 
   it('Tornando bottomSheetVisivel como false ao chamar handleCancelar()', () => {
-    const {result} = renderHook(() => pegarConfirmarDelete({}));
+    const { result } = renderHook(() => useConfirmarDelete({}));
 
     act(() => {
       result.current.setBottomSheetVisivel(true);

@@ -7,7 +7,8 @@ import { enderecoMock } from '../../mocks/endereco';
 import { ButtonSecondaryComponent } from '../../components/ButtonSecondaryComponent';
 import { HeaderComponent } from '../../components/HearderComponent';
 import { BottomSheetComponent } from '../../components/BottomSheetComponent';
-import { pegarConfirmarDelete } from '../../hooks/pegarConfirmarDelete';
+import { useConfirmarDelete } from '../../hooks/useConfirmarDelete';
+import { styles } from './styles';
 
 export default function DetalhesEndereco({ navigation }: any) {
   const {
@@ -15,16 +16,10 @@ export default function DetalhesEndereco({ navigation }: any) {
     setBottomSheetVisivel,
     handleDeletar,
     handleCancelar,
-  } = pegarConfirmarDelete({navigation});
+  } = useConfirmarDelete({ navigation });
 
   return (
-    <VStack
-      flex={1}
-      backgroundColor="background"
-      alignItems="start"
-      justifyContent="flex-start"
-      padding={5}
-    >
+    <VStack style={styles.container} alignItems="start">
       <HeaderComponent
         textTitulo="Endereço encontrado"
         navigation={navigation}
@@ -32,7 +27,7 @@ export default function DetalhesEndereco({ navigation }: any) {
       />
 
       <Box marginTop={20} marginBottom={20}>
-        {enderecoMock.map((endereco) => (
+        {enderecoMock.map(endereco => (
           <VStack alignItems="center" key={endereco.id}>
             <ItemComponent
               tituloText={endereco.titulo}
@@ -53,14 +48,16 @@ export default function DetalhesEndereco({ navigation }: any) {
       <ButtonSecondaryComponent
         buttonText={'Deletar'}
         removeButton={true}
-        onPress={() => { setBottomSheetVisivel(true) }}
+        onPress={() => {
+          setBottomSheetVisivel(true);
+        }}
       />
 
       {bottomSheetVisivel && (
         <BottomSheetComponent
           isVisible={bottomSheetVisivel}
           onCancel={handleCancelar}
-          onConfirm={() => handleDeletar()}
+          onConfirm={() => { handleDeletar(); }}
         />
       )}
     </VStack>

@@ -1,4 +1,4 @@
-import { extendTheme } from 'native-base';
+import {extendTheme} from 'native-base';
 
 export const THEMES = extendTheme({
   colors: {
@@ -27,23 +27,23 @@ export const THEMES = extendTheme({
     xl: 24,
   },
   fontWeights: {
-    hairline: 100,
-    thin: 200,
-    light: 300,
-    normal: 400,
-    medium: 500,
-    semibold: 600,
-    bold: 700,
-    extrabold: 800,
-    black: 900,
-    extraBlack: 950,
+    hairline: '100',
+    thin: '200',
+    light: '300',
+    normal: '400',
+    medium: '500',
+    semibold: '600',
+    bold: '700',
+    extrabold: '800',
+    black: '900',
+    extraBlack: '950',
   },
   config: {
     initialColorMode: 'light',
     useSystemColorMode: false,
     style: {
       _app: {
-        bg: 'primary',
+        bg: 'background',
       },
     },
   },

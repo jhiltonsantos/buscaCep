@@ -1,16 +1,25 @@
-import { color } from '@rneui/base';
 import {StyleSheet} from 'react-native';
+import {THEMES} from '../../config/theme';
 
 export const styles = StyleSheet.create({
-  button: {
-    margin: 10,
+  container: {
+    padding: 20,
+    backgroundColor: THEMES.colors.white,
+    borderTopStartRadius: 30,
+    borderTopEndRadius: 30,
+  },
+  containerHorizontal: {
+    justifyContent: 'space-evenly',
+    paddingBottom: 60,
+  },
+  containerButton: {
+    width: 160,
   },
   text: {
-    fontSize: 24,
-    fontWeight: "600",
-    textAlign: "center",
-    color: "#3F0B6C",
-    marginVertical: 10,
-  
-  }
+    fontSize: THEMES.fontSizes.xl,
+    fontWeight: THEMES.fontWeights.semibold,
+    textAlign: 'center',
+    color: THEMES.colors.purple[800],
+    paddingVertical: 60,
+  },
 });

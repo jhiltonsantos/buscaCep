@@ -1,9 +1,10 @@
 import React from 'react';
 import { BottomSheet } from '@rneui/themed';
-import { VStack, Text, Divider, HStack, Button } from 'native-base';
+import { VStack, Text, HStack } from 'native-base';
 import { ButtonPrimaryComponent } from '../ButtonPrimaryComponent';
 import { ButtonSecondaryComponent } from '../ButtonSecondaryComponent';
 import { styles } from './styles';
+import bottomSheetTexto from '../../mocks/bottomSheetTexto';
 
 interface BottomSheetComponentProps {
   isVisible: boolean;
@@ -11,50 +12,26 @@ interface BottomSheetComponentProps {
   onConfirm: () => void;
 }
 
-export const BottomSheetComponent: React.FC<BottomSheetComponentProps> = (
-  { isVisible,
-    onCancel,
-    onConfirm
-  }
-) => {
+export const BottomSheetComponent: React.FC<BottomSheetComponentProps> = ({
+  isVisible,
+  onCancel,
+  onConfirm,
+}) => {
   return (
     <VStack>
       <BottomSheet isVisible={isVisible}>
-        <VStack
-          padding={5}
-          backgroundColor="white"
-          borderTopRadius={30}
-          data-testid="primary-bottom-sheet"
-        >
-          <Text
-            alignSelf="center"
-            marginBottom={10}
-            marginTop={10}
-            style={styles.text}
-          >
-            Deseja mesmo deletar esse endereço?
+        <VStack style={styles.container} data-testid="primary-bottom-sheet">
+          <Text alignSelf="center" style={styles.text}>
+            {bottomSheetTexto.text}
           </Text>
 
-          <HStack
-            justifyContent="space-around"
-            marginBottom={10}
-          >
-            <VStack
-              width="40%"
-            >
-              <ButtonPrimaryComponent
-                buttonText='Sim'
-                onPress={onConfirm}
-              />
+          <HStack style={styles.containerHorizontal}>
+            <VStack style={styles.containerButton}>
+              <ButtonPrimaryComponent buttonText="Sim" onPress={onConfirm} />
             </VStack>
 
-            <VStack
-              width="40%"
-            >
-              <ButtonSecondaryComponent
-                buttonText='Não'
-                onPress={onCancel}
-              />
+            <VStack style={styles.containerButton}>
+              <ButtonSecondaryComponent buttonText="Não" onPress={onCancel} />
             </VStack>
           </HStack>
         </VStack>
