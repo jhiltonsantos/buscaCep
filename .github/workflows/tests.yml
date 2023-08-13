@@ -1,9 +1,10 @@
-name: "CI (Interação Continua): Testes"
+name: 'CI (Interação Continua): Testes'
 
 on:
+  push:
+    branches: ['develop', 'staging']
   pull_request:
-    branches:
-      - develop
+    branches: ['develop', 'staging']
 
 jobs:
   test:
@@ -16,10 +17,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 14
+          node-version: 16
 
-      - name: Instalar dependencias
+      - name: Instalando dependencias
         run: yarn install
-
-      - name: Rodar testes
+      
+      - name: Executanto testes com jest
         run: yarn test
