@@ -6,7 +6,8 @@ export type ScreenList = {
   Login: undefined;
   Inicio: undefined;
   EditarEndereco: undefined;
-  DetalhesEndereco: { endereco: EnderecoCep; enderecoEditado: boolean };
+  DetalhesEndereco: { endereco: EnderecoCep; enderecoEditar: boolean };
+  useLogin: undefined;
 };
 
 export type NavigationProps<T extends keyof ScreenList> = {

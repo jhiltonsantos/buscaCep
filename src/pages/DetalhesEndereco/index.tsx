@@ -1,24 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { Divider, VStack, Box, Text } from 'native-base';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Divider, VStack, Box } from 'native-base';
 
 import { ButtonPrimaryComponent } from '../../components/ButtonPrimaryComponent';
 import { ItemComponent } from '../../components/ItemComponent';
 import { ButtonSecondaryComponent } from '../../components/ButtonSecondaryComponent';
 import { HeaderComponent } from '../../components/HearderComponent';
 import { BottomSheetComponent } from '../../components/BottomSheetComponent';
-import { TituloComponent } from '../../components/TituloComponent';
+import { TelaCarregandoComponent } from '../../components/TelaCarregandoComponent';
 
 import { EnderecoCep } from '../../interfaces/enderecoCep';
-import { Usuario } from '../../interfaces/usuario';
-import { criarEnderecoMock } from '../../mocks/endereco';
-
 import { useConfirmarDelete } from '../../hooks/useConfirmarDelete';
-import { atualizarDadosUsuario, pegarDadosUsuario } from '../../services/apiFido/usuarioService';
+import { useAtualizarUsuario } from '../../hooks/useAtualizarUsuario';
 
 import { styles } from './styles';
 
 export default function DetalhesEndereco({ route, navigation }: any) {
+  const enderecoViaCep: EnderecoCep = route.params.endereco;
+  const enderecoEditar: boolean = route.params.enderecoEditar;
+  const { carregando, mock } = useAtualizarUsuario(enderecoViaCep, enderecoEditar);
   const {
     bottomSheetVisivel,
     setBottomSheetVisivel,
@@ -26,70 +24,9 @@ export default function DetalhesEndereco({ route, navigation }: any) {
     handleCancelar,
   } = useConfirmarDelete({ navigation });
 
-  const enderecoViaCep: EnderecoCep = route.params.endereco;
-  const enderecoEditado: boolean = route.params.enderecoEditado;
-
-  const [carregando, setCarregando] = useState(true);
-  const [mock, setMock] = useState<any[]>([]);
-
-  async function getUsuarioEndereco(id: string) {
-    if (id) {
-      const usuarioEncontrado: Usuario = await pegarDadosUsuario(id);
-      return usuarioEncontrado;
-    } else {
-      console.log('Erro ao buscar usuario');
-      return null;
-    }
-  }
-
-  async function atualizarUsuario() {
-    const idUsuario = await AsyncStorage.getItem('usuarioId');
-    if (idUsuario) {
-      const dadosUsuario = await getUsuarioEndereco(idUsuario);
-      if (!enderecoEditado) {
-        if (dadosUsuario) {
-          const dados: Usuario = {
-            ...dadosUsuario,
-            cep: enderecoViaCep.cep,
-            estado: enderecoViaCep.uf,
-            cidade: enderecoViaCep.localidade,
-            endereco: enderecoViaCep.logradouro,
-            complemento: enderecoViaCep.complemento,
-            numero: '',
-          }
-          const usuarioAtualizado: Usuario = await atualizarDadosUsuario(idUsuario, dados);
-          console.log('Usuario Atualizado');
-          return usuarioAtualizado;
-        } else {
-          console.log('Usuario nao encontrado');
-          return null;
-        }
-      } else {
-        return null;
-      }
-    }
-  }
-
-  useEffect(() => {
-    async function carregarDados() {
-      if (carregando) {
-        const recebendoUsuario = await atualizarUsuario();
-        if (recebendoUsuario) {
-          const mockCriado = criarEnderecoMock(recebendoUsuario);
-          setMock(mockCriado);
-        }
-        setCarregando(false);
-      }
-    }
-    carregarDados();
-  }, [carregando]);
-
-
   if (carregando) {
     return (
-      <VStack flex={1} alignItems="center" justifyContent="center">
-        <TituloComponent text="Carregando..." />
-      </VStack>
+      <TelaCarregandoComponent />
     );
   } else {
     return (
@@ -114,7 +51,7 @@ export default function DetalhesEndereco({ route, navigation }: any) {
 
         <ButtonPrimaryComponent
           buttonText={'Editar'}
-          onPress={() => { }}
+          onPress={() => { navigation.navigate('EditarEndereco') }}
         />
 
         <Divider marginTop={3} />
