@@ -37,7 +37,7 @@ export default function Inicio({ navigation }: any) {
         ddd: resultado.ddd,
         siafi: resultado.siafi,
       };
-      navigation.navigate('DetalhesEndereco', { endereco: enderecoCep, enderecoEditado: false });
+      navigation.navigate('DetalhesEndereco', { endereco: enderecoCep, enderecoEditar: false });
     } else {
       toast.show({
         title: "Erro ao buscar cep",
