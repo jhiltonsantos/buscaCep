@@ -1,0 +1,18 @@
+name: 'Actions: Comandos no Terminal'
+
+on:
+  push:
+    branches: ['develop', 'staging']
+  pull_request:
+    branches: ['develop', 'staging']
+
+jobs:
+  terminal:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Executando comandos terminal
+        run: echo Inciando Actions
