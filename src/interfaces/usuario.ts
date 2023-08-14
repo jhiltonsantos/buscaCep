@@ -8,5 +8,6 @@ export interface Usuario {
   numero?: string;
   cidade?: string;
   estado?: string;
+  bairro?: string;
   id?: string;
 }
