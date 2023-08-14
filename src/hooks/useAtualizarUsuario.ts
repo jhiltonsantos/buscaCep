@@ -5,7 +5,7 @@ import { atualizarDadosUsuario, pegarDadosUsuario } from '../services/apiFido/us
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { criarEnderecoMock } from '../mocks/endereco';
 
-export function useAtualizarUsuario(enderecoViaCep: EnderecoCep, enderecoEditar: boolean) {
+export function useAtualizarUsuario(enderecoViaCep: EnderecoCep, enderecoEditado: boolean) {
   const [carregando, setCarregando] = useState(true);
   const [mock, setMock] = useState<any[]>([]);
 
@@ -14,7 +14,6 @@ export function useAtualizarUsuario(enderecoViaCep: EnderecoCep, enderecoEditar:
       const usuarioEncontrado: Usuario = await pegarDadosUsuario(id);
       return usuarioEncontrado;
     } else {
-      console.log('Erro ao buscar usuario');
       return null;
     }
   }
@@ -23,7 +22,7 @@ export function useAtualizarUsuario(enderecoViaCep: EnderecoCep, enderecoEditar:
     const idUsuario = await AsyncStorage.getItem('usuarioId');
     if (idUsuario) {
       const dadosUsuario = await getUsuarioEndereco(idUsuario);
-      if (!enderecoEditar) {
+      if (!enderecoEditado) {
         if (dadosUsuario) {
           const dados: Usuario = {
             ...dadosUsuario,
@@ -41,7 +40,7 @@ export function useAtualizarUsuario(enderecoViaCep: EnderecoCep, enderecoEditar:
           return null;
         }
       } else {
-        return null;
+        return dadosUsuario;
       }
     }
   }

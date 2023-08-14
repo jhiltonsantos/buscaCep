@@ -2,28 +2,28 @@ const inputsEditar = [
   {
     id: 0,
     label: 'Cidade',
-    placeholder: 'Teresina',
+    placeholder: 'Digite sua cidade',
   },
   {
     id: 1,
     label: 'UF',
-    placeholder: 'PI',
+    placeholder: 'Digite o UF do seu estado',
   },
   {
     id: 2,
     label: 'Bairro',
-    placeholder: 'Parque Ideal',
+    placeholder: 'Digite o bairro',
   },
   {
     id: 3,
     label: 'Logradouro',
-    placeholder: 'Residencial Village Horizonte',
+    placeholder: 'Digite o logradouro',
   },
   {
     id: 4,
     label: 'Numero',
-    placeholder: '102',
+    placeholder: 'Digite o número',
   },
 ];
 
-export {inputsEditar};
+export { inputsEditar };

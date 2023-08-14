@@ -6,7 +6,7 @@ export type ScreenList = {
   Login: undefined;
   Inicio: undefined;
   EditarEndereco: undefined;
-  DetalhesEndereco: { endereco: EnderecoCep; enderecoEditar: boolean };
+  DetalhesEndereco: { endereco: EnderecoCep; enderecoEditado: boolean };
   useLogin: undefined;
 };
 

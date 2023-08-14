@@ -30,7 +30,7 @@ describe('Hook pegarConfirmarDelete', () => {
   });
 
   it('Chamando o navigation.goBack() e colocando bottomSheetVisivel como falso ao executar handleDeletar()', async () => {
-    const navigation = { goBack: jest.fn() };
+    const navigation = { replace: jest.fn() };
     const { result } = renderHook(() => useConfirmarDelete({ navigation }));
 
     await act(async () => {
@@ -41,7 +41,7 @@ describe('Hook pegarConfirmarDelete', () => {
       });
     });
 
-    expect(navigation.goBack).toHaveBeenCalledTimes(1);
+    expect(navigation.replace).toHaveBeenCalledTimes(1);
   });
 
   it('Tornando bottomSheetVisivel como false ao chamar handleCancelar()', () => {

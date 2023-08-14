@@ -1,6 +1,6 @@
 import { Box, Divider, VStack, useToast } from 'native-base';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { InputComponent } from '../../components/InputComponent';
 import { ButtonPrimaryComponent } from '../../components/ButtonPrimaryComponent';
@@ -18,11 +18,15 @@ export default function Inicio({ navigation }: any) {
   function useDeslogar() {
     AsyncStorage.removeItem('nome')
     AsyncStorage.removeItem('senha')
+    AsyncStorage.removeItem('usuarioId')
+    AsyncStorage.removeItem('cepUsuario')
     navigation.replace('Login')
   }
 
   async function useProcurarCEP() {
-    if (!cep) return;
+    if (!cep) {
+      return null;
+    }
     const resultado = await procurarCep(cep);
     if (resultado) {
       const enderecoCep: EnderecoCep = {
@@ -37,7 +41,23 @@ export default function Inicio({ navigation }: any) {
         ddd: resultado.ddd,
         siafi: resultado.siafi,
       };
-      navigation.navigate('DetalhesEndereco', { endereco: enderecoCep, enderecoEditar: false });
+      const cepGuardado = await AsyncStorage.getItem('cepUsuario');
+      console.log("CEP Guardado: ", cepGuardado)
+      console.log("Novo CEP: ", cep)
+      if (cepGuardado === cep) {
+        console.log('Esta chamando o mesmo cep')
+        navigation.navigate('DetalhesEndereco', {
+          endereco: enderecoCep,
+          enderecoEditado: true
+        });
+      } else {
+        console.log('Novo cep guardado', cep)
+        AsyncStorage.setItem('cepUsuario', cep);
+        navigation.navigate('DetalhesEndereco', {
+          endereco: enderecoCep,
+          enderecoEditado: false
+        });
+      }
     } else {
       toast.show({
         title: "Erro ao buscar cep",

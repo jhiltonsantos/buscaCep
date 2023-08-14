@@ -1,28 +1,24 @@
 import React from 'react';
-import {HStack, ITextProps, Image, Divider} from 'native-base';
-import {TouchableOpacity} from 'react-native';
-import {TituloComponent} from '../TituloComponent';
+import { HStack, ITextProps, Image, Divider } from 'native-base';
+import { TouchableOpacity } from 'react-native';
+import { TituloComponent } from '../TituloComponent';
 
 import ArowLeft from '../../assets/icons/arrow-left.svg';
-import {styles} from './styles';
+import { styles } from './styles';
 
 interface HeaderProps extends ITextProps {
-  navigation: any;
   textTitulo: string;
+  onPress?: () => void;
 }
 
 export function HeaderComponent({
-  navigation,
   textTitulo,
+  onPress,
   ...otherProps
 }: HeaderProps) {
-  const botaoVoltar = () => {
-    navigation.goBack();
-  };
-
   return (
     <HStack style={styles.hstack} {...otherProps}>
-      <TouchableOpacity style={styles.button} onPress={botaoVoltar}>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
         <ArowLeft width={30} height={30} />
       </TouchableOpacity>
 
