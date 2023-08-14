@@ -1,10 +1,12 @@
-import {Text} from 'native-base';
+import { Text } from 'native-base';
+
 
 import subtitulo from '../../mocks/subtitulo';
+import { styles } from './styles';
 
-export function SubtituloComponent({...outrasProps}) {
+export function SubtituloComponent({ ...outrasProps }) {
   return (
-    <Text fontSize="md" color="gray.500" {...outrasProps}>
+    <Text style={styles.text} {...outrasProps}>
       {subtitulo.text}
     </Text>
   );

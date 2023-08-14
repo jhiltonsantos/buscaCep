@@ -1,11 +1,12 @@
 import React from 'react';
-import {Text} from 'native-base';
+import { Text } from 'native-base';
+import { styles } from './styles';
 
-export function LogoComponent({...otherProps}) {
+export function LogoComponent({ ...otherProps }) {
   return (
-    <Text fontSize="3xl" color="purple.500" {...otherProps}>
+    <Text fontSize="3xl" style={styles.text} {...otherProps}>
       <Text>Busca</Text>
-      <Text fontWeight="bold">CEP</Text>
+      <Text style={styles.textBold}>CEP</Text>
     </Text>
   );
 }

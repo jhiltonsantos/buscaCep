@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {THEMES} from '../../config/theme';
+import { StyleSheet } from 'react-native';
+import { THEMES } from '../../config/theme';
 
 export const styles = StyleSheet.create({
   container: {
@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
   },
   text: {
     fontSize: THEMES.fontSizes.xl,
-    fontWeight: THEMES.fontWeights.semibold,
+    fontFamily: 'Epilogue-SemiBold',
     textAlign: 'center',
     color: THEMES.colors.purple[800],
     paddingVertical: 60,

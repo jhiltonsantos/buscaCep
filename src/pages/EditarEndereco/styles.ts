@@ -15,7 +15,8 @@ export const styles = StyleSheet.create({
     backgroundColor: THEMES.colors.white,
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: THEMES.colors.white,
+    borderColor: THEMES.colors.gray[300],
+    fontFamily: 'Epilogue-Regular',
   },
   dropdown: {
     position: 'relative',
@@ -23,6 +24,7 @@ export const styles = StyleSheet.create({
     backgroundColor: THEMES.colors.white,
     borderRadius: 8,
     borderWidth: 0,
+    fontFamily: 'Epilogue-Regular',
   },
   dropdownButtonDown: {
     alignContent: 'flex-end',
@@ -31,6 +33,7 @@ export const styles = StyleSheet.create({
     textAlign: 'left',
     fontSize: THEMES.fontSizes.md,
     color: THEMES.colors.gray[800],
+    fontFamily: 'Epilogue-Regular',
   },
   input: {
     fontSize: THEMES.fontSizes.md,
@@ -38,10 +41,11 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 1,
     borderColor: THEMES.colors.white,
+    fontFamily: 'Epilogue-Regular',
   },
   labelText: {
     fontSize: THEMES.fontSizes.md,
-    fontWeight: THEMES.fontWeights.medium,
+    fontFamily: 'Epilogue-Medium',
     color: THEMES.colors.gray[800],
   },
 });

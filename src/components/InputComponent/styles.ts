@@ -8,11 +8,12 @@ export const styles = StyleSheet.create({
   },
   labelText: {
     fontSize: THEMES.fontSizes.md,
-    fontWeight: THEMES.fontWeights.medium,
+    fontFamily: 'Epilogue-Medium',
     color: THEMES.colors.gray[800],
   },
   input: {
     fontSize: THEMES.fontSizes.md,
+    fontFamily: 'Epilogue-Regular',
     borderRadius: 8,
     backgroundColor: THEMES.colors.white,
     borderWidth: 0,

@@ -6,7 +6,7 @@ import { styles } from './styles';
 export function TelaCarregandoComponent({ ...outrasProps }) {
   return (
     <VStack style={styles.container}>
-      <TituloComponent text="Carregando..." />
+      <TituloComponent text="" />
     </VStack>
   );
 }

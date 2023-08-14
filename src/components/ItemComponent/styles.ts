@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {THEMES} from '../../config/theme';
+import { StyleSheet } from 'react-native';
+import { THEMES } from '../../config/theme';
 
 export const styles = StyleSheet.create({
   containerHorizontal: {
@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
   },
   tituloText: {
     fontSize: THEMES.fontSizes.md,
-    fontWeight: THEMES.fontWeights.medium,
+    fontFamily: 'Epilogue-Medium',
     color: THEMES.colors.gray[800],
     marginTop: 2,
     marginBottom: 2,
@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   dadoText: {
-    fontWeight: THEMES.fontWeights.normal,
+    fontFamily: 'Epilogue-Regular',
     color: THEMES.colors.gray[500],
     marginTop: 2,
     marginBottom: 2,
