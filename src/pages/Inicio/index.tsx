@@ -59,13 +59,13 @@ export default function Inicio({ navigation }: any) {
       };
       const cepGuardado = await AsyncStorage.getItem('cepUsuario');
       if (cepGuardado === cepFormatado) {
-        navigation.navigate('DetalhesEndereco', {
+        navigation.replace('DetalhesEndereco', {
           endereco: enderecoCep,
           enderecoEditado: true
         });
       } else {
         AsyncStorage.setItem('cepUsuario', cepFormatado);
-        navigation.navigate('DetalhesEndereco', {
+        navigation.replace('DetalhesEndereco', {
           endereco: enderecoCep,
           enderecoEditado: false
         });

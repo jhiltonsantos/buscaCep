@@ -34,7 +34,7 @@ export default function DetalhesEndereco({ route, navigation }: any) {
         <HeaderComponent
           textTitulo="Endereço encontrado"
           marginTop={20}
-          onPress={() => navigation.navigate('Inicio')}
+          onPress={() => navigation.replace('Inicio')}
         />
 
         <Box marginTop={20} marginBottom={20}>
@@ -54,7 +54,7 @@ export default function DetalhesEndereco({ route, navigation }: any) {
 
         <ButtonPrimaryComponent
           buttonText={'Editar'}
-          onPress={() => { navigation.navigate('EditarEndereco') }}
+          onPress={() => { navigation.replace('EditarEndereco') }}
         />
 
         <Divider marginTop={3} />
