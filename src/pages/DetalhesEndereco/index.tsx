@@ -34,24 +34,27 @@ export default function DetalhesEndereco({ route, navigation }: any) {
         <HeaderComponent
           textTitulo="Endereço encontrado"
           marginTop={20}
-          onPress={() => navigation.navigate('Inicio')}
+          onPress={() => navigation.replace('Inicio')}
         />
 
         <Box marginTop={20} marginBottom={20}>
-          {mock.map(endereco => (
+          {mock.map((endereco, index) => (
             <VStack alignItems="center" key={endereco.id}>
               <ItemComponent
                 tituloText={endereco.titulo}
                 dadoText={endereco.dado}
               />
-              <Divider marginTop={2} marginBottom={2} />
+              {index < mock.length - 1
+                ? <Divider marginTop={2} marginBottom={2} />
+                : null
+              }
             </VStack>
           ))}
         </Box>
 
         <ButtonPrimaryComponent
           buttonText={'Editar'}
-          onPress={() => { navigation.navigate('EditarEndereco') }}
+          onPress={() => { navigation.replace('EditarEndereco') }}
         />
 
         <Divider marginTop={3} />
@@ -64,13 +67,13 @@ export default function DetalhesEndereco({ route, navigation }: any) {
           }}
         />
 
-        {bottomSheetVisivel && (
+        {bottomSheetVisivel ? (
           <BottomSheetComponent
             isVisible={bottomSheetVisivel}
             onCancel={handleCancelar}
             onConfirm={() => { handleDeletar(); }}
           />
-        )}
+        ) : null}
       </VStack>
     );
   }

@@ -25,7 +25,7 @@ function criarEnderecoMock(enderecoUsuario: Usuario) {
     {
       id: 4,
       titulo: 'Bairro',
-      dado: enderecoUsuario.complemento,
+      dado: enderecoUsuario.bairro,
     },
     {
       id: 5,
