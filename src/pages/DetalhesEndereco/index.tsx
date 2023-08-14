@@ -15,8 +15,8 @@ import { styles } from './styles';
 
 export default function DetalhesEndereco({ route, navigation }: any) {
   const enderecoViaCep: EnderecoCep = route.params.endereco;
-  const enderecoEditar: boolean = route.params.enderecoEditar;
-  const { carregando, mock } = useAtualizarUsuario(enderecoViaCep, enderecoEditar);
+  const enderecoEditado: boolean = route.params.enderecoEditado;
+  const { carregando, mock } = useAtualizarUsuario(enderecoViaCep, enderecoEditado);
   const {
     bottomSheetVisivel,
     setBottomSheetVisivel,
@@ -33,8 +33,8 @@ export default function DetalhesEndereco({ route, navigation }: any) {
       <VStack style={styles.container} alignItems="start">
         <HeaderComponent
           textTitulo="Endereço encontrado"
-          navigation={navigation}
           marginTop={20}
+          onPress={() => navigation.goBack()}
         />
 
         <Box marginTop={20} marginBottom={20}>

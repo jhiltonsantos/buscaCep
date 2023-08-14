@@ -4,7 +4,7 @@ import { Usuario } from '../interfaces/usuario';
 import { atualizarDadosUsuario, pegarDadosUsuario } from '../services/apiFido/usuarioService';
 
 export function useEditarEndereco({ navigation }: { navigation: any }) {
-  const [enderecoEditado, setEnderecoEditado] = useState<Usuario>({
+  const [enderecoEditar, setEnderecoEditar] = useState<Usuario>({
     cidade: '',
     estado: '',
     complemento: '',
@@ -25,7 +25,7 @@ export function useEditarEndereco({ navigation }: { navigation: any }) {
     if (idUsuario) {
       const usuarioEncontrado = await pegarDadosUsuario(idUsuario);
       if (usuarioEncontrado) {
-        setEnderecoEditado({
+        setEnderecoEditar({
           cidade: usuarioEncontrado.cidade || '',
           estado: usuarioEncontrado.estado || '',
           complemento: usuarioEncontrado.complemento || '',
@@ -41,7 +41,7 @@ export function useEditarEndereco({ navigation }: { navigation: any }) {
   }, []);
 
   const atualizarEnderecoEditado = (campo: keyof Usuario, valor: string) => {
-    setEnderecoEditado((prevState) => ({
+    setEnderecoEditar((prevState) => ({
       ...prevState,
       [campo]: valor,
     }));
@@ -50,16 +50,16 @@ export function useEditarEndereco({ navigation }: { navigation: any }) {
   const handleSalvarAlteracoes = async () => {
     const idUsuario = await AsyncStorage.getItem('usuarioId');
     if (idUsuario) {
-      const enderecoAtualizado = await atualizarDadosUsuario(idUsuario, enderecoEditado);
+      const enderecoAtualizado = await atualizarDadosUsuario(idUsuario, enderecoEditar);
       navigation.replace('DetalhesEndereco', {
         endereco: enderecoAtualizado,
-        enderecoEditar: true,
+        enderecoEditado: true,
       });
     }
   };
 
   return {
-    enderecoEditado,
+    enderecoEditar,
     inputIdToUsuarioProperty,
     handleSalvarAlteracoes,
     atualizarEnderecoEditado,

@@ -7,7 +7,6 @@ export async function fazerLogin(nome: string, senha: string) {
       name: nome,
       password: senha,
     });
-    console.log(resultado.data);
     return resultado.data;
   } catch (error) {
     console.log(error);

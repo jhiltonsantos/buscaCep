@@ -27,7 +27,6 @@ export async function atualizarDadosUsuario(id: string, usuario: Usuario) {
     console.log('ID de usuário inválido.');
     return null;
   }
-
   try {
     const resultado = await apiFido.put(`/user/${id}`, usuario);
     return resultado.data;

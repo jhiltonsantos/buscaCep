@@ -12,7 +12,7 @@ import { styles } from './styles';
 
 
 export default function EditarEndereco({ navigation }: any) {
-  const { enderecoEditado,
+  const { enderecoEditar,
     inputIdToUsuarioProperty,
     handleSalvarAlteracoes,
     atualizarEnderecoEditado
@@ -22,8 +22,8 @@ export default function EditarEndereco({ navigation }: any) {
     <VStack style={styles.container} alignItems="start">
       <HeaderComponent
         textTitulo="Editar Endereço"
-        navigation={navigation}
         marginTop={20}
+        onPress={() => { navigation.navigate('DetalhesEndereco') }}
       />
 
       <Box marginTop={20} marginBottom={20}>
@@ -32,7 +32,7 @@ export default function EditarEndereco({ navigation }: any) {
             <InputComponent
               labelText={input.label}
               placeholderText={input.placeholder}
-              value={enderecoEditado[inputIdToUsuarioProperty[input.id]] as string}
+              value={enderecoEditar[inputIdToUsuarioProperty[input.id]] as string}
               onChangeText={value => atualizarEnderecoEditado(
                 inputIdToUsuarioProperty[input.id], value
               )}

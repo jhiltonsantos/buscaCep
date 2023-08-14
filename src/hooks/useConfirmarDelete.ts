@@ -19,7 +19,8 @@ export function useConfirmarDelete({ navigation }: any) {
       };
       await atualizarDadosUsuario(idUsuario, dados);
     }
-    navigation.goBack();
+    AsyncStorage.removeItem('cepUsuario');
+    navigation.replace('Inicio');
     setBottomSheetVisivel(false);
   };
 
