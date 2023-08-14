@@ -1,0 +1,29 @@
+name: 'CD Exemplo: Build app'
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+
+jobs:
+  contruir:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+
+      - name: Instalando dependencias
+        run: yarn install
+
+      - name: Executanto testes com jest
+        run: yarn test --coverage
+
+      - name: Executanto build
+        run: echo criar um build para app
