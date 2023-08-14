@@ -1,10 +1,5 @@
 const inputsEditar = [
   {
-    id: 0,
-    label: 'Cidade',
-    placeholder: 'Digite sua cidade',
-  },
-  {
     id: 1,
     label: 'UF',
     placeholder: 'Digite o UF do seu estado',

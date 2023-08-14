@@ -34,7 +34,7 @@ export default function DetalhesEndereco({ route, navigation }: any) {
         <HeaderComponent
           textTitulo="Endereço encontrado"
           marginTop={20}
-          onPress={() => navigation.goBack()}
+          onPress={() => navigation.navigate('Inicio')}
         />
 
         <Box marginTop={20} marginBottom={20}>

@@ -13,12 +13,13 @@ export function useEditarEndereco({ navigation }: { navigation: any }) {
   });
 
   const inputIdToUsuarioProperty: Record<number, keyof Usuario> = {
-    0: 'cidade',
     1: 'estado',
     2: 'complemento',
     3: 'endereco',
     4: 'numero',
   };
+
+  const [estadoSelecionado, setEstadoSelecionado] = useState<string>('');
 
   const carregarDadosUsuario = async () => {
     const idUsuario = await AsyncStorage.getItem('usuarioId');
@@ -32,6 +33,7 @@ export function useEditarEndereco({ navigation }: { navigation: any }) {
           endereco: usuarioEncontrado.endereco || '',
           numero: usuarioEncontrado.numero || '',
         });
+        setEstadoSelecionado(usuarioEncontrado.estado || '');
       }
     }
   };
@@ -63,5 +65,7 @@ export function useEditarEndereco({ navigation }: { navigation: any }) {
     inputIdToUsuarioProperty,
     handleSalvarAlteracoes,
     atualizarEnderecoEditado,
+    estadoSelecionado,
+    setEstadoSelecionado,
   };
 }
