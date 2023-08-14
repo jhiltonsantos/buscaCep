@@ -30,7 +30,7 @@ export function useAtualizarUsuario(enderecoViaCep: EnderecoCep, enderecoEditado
             estado: enderecoViaCep.uf,
             cidade: enderecoViaCep.localidade,
             endereco: enderecoViaCep.logradouro,
-            complemento: enderecoViaCep.complemento,
+            bairro: enderecoViaCep.bairro,
             numero: '',
           };
           const usuarioAtualizado: Usuario = await atualizarDadosUsuario(idUsuario, dados);

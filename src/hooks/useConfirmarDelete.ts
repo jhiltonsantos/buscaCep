@@ -14,7 +14,7 @@ export function useConfirmarDelete({ navigation }: any) {
         estado: '',
         cidade: '',
         endereco: '',
-        complemento: '',
+        bairro: '',
         numero: '',
       };
       await atualizarDadosUsuario(idUsuario, dados);

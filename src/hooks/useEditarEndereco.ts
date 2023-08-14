@@ -7,14 +7,14 @@ export function useEditarEndereco({ navigation }: { navigation: any }) {
   const [enderecoEditar, setEnderecoEditar] = useState<Usuario>({
     cidade: '',
     estado: '',
-    complemento: '',
+    bairro: '',
     endereco: '',
     numero: '',
   });
 
   const inputIdToUsuarioProperty: Record<number, keyof Usuario> = {
     1: 'estado',
-    2: 'complemento',
+    2: 'bairro',
     3: 'endereco',
     4: 'numero',
   };
@@ -29,7 +29,7 @@ export function useEditarEndereco({ navigation }: { navigation: any }) {
         setEnderecoEditar({
           cidade: usuarioEncontrado.cidade || '',
           estado: usuarioEncontrado.estado || '',
-          complemento: usuarioEncontrado.complemento || '',
+          bairro: usuarioEncontrado.bairro || '',
           endereco: usuarioEncontrado.endereco || '',
           numero: usuarioEncontrado.numero || '',
         });
