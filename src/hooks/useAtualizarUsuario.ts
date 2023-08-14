@@ -21,8 +21,10 @@ export function useAtualizarUsuario(enderecoViaCep: EnderecoCep, enderecoEditar:
 
   async function atualizarUsuario() {
     const idUsuario = await AsyncStorage.getItem('usuarioId');
+    console.log('Funcao atualizarUsuario esta sendo chamada');
     if (idUsuario) {
       const dadosUsuario = await getUsuarioEndereco(idUsuario);
+      console.log('Endereco Editar', enderecoEditar);
       if (!enderecoEditar) {
         if (dadosUsuario) {
           const dados: Usuario = {
@@ -41,7 +43,8 @@ export function useAtualizarUsuario(enderecoViaCep: EnderecoCep, enderecoEditar:
           return null;
         }
       } else {
-        return null;
+        console.log('Dados atualizados de Editar endereco', dadosUsuario);
+        return dadosUsuario;
       }
     }
   }

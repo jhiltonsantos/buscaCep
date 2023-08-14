@@ -30,7 +30,6 @@ export async function atualizarDadosUsuario(id: string, usuario: Usuario) {
 
   try {
     const resultado = await apiFido.put(`/user/${id}`, usuario);
-    console.log('Funcao atualizar:', resultado.data);
     return resultado.data;
   } catch (error) {
     console.log(error);
