@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormControl, ITextProps, Text, Input } from 'native-base';
 import { useVisibilidadeSenha } from '../../hooks/useVisibilidadeSenha';
-import { Pressable, Image } from 'react-native';
+import { Pressable } from 'react-native';
 
 import EyeOpenIcon from '../../assets/icons/eye-open.svg';
 import EyeCloseIcon from '../../assets/icons/eye-close.svg';
@@ -12,6 +12,7 @@ interface InputProps extends ITextProps {
   labelText: string;
   placeholderText: string;
   value?: string;
+  isCepInput?: boolean;
   textoDeSenha?: boolean;
   onChangeText?: (text: string) => void;
 }
@@ -54,6 +55,7 @@ export function InputComponent({
         secureTextEntry={textoDeSenha ? senhaVisibilidade : false}
         InputRightElement={iconeSenha}
       />
+
     </FormControl>
   );
 }

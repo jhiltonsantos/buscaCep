@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {THEMES} from '../../config/theme';
+import { StyleSheet } from 'react-native';
+import { THEMES } from '../../config/theme';
 
 export const styles = StyleSheet.create({
   pressable: {
@@ -15,5 +15,8 @@ export const styles = StyleSheet.create({
     fontSize: THEMES.fontSizes.md,
     borderRadius: 8,
     backgroundColor: THEMES.colors.white,
+    borderWidth: 0,
+    borderColor: 'transparent',
+    shadowColor: 'transparent',
   },
 });

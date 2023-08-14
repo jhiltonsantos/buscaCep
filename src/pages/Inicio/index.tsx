@@ -23,11 +23,27 @@ export default function Inicio({ navigation }: any) {
     navigation.replace('Login')
   }
 
+  function formatarCep(cep: string) {
+    return cep.replace(/[^\d]/g, '');
+  }
+
   async function useProcurarCEP() {
     if (!cep) {
       return null;
     }
-    const resultado = await procurarCep(cep);
+
+    const cepFormatado = formatarCep(cep);
+    if (cepFormatado.length !== 8) {
+      toast.show({
+        title: "CEP inválido",
+        description: "O CEP deve conter exatamente 8 dígitos numéricos.",
+        style: styles.toast,
+      });
+      return;
+    }
+
+    const resultado = await procurarCep(cepFormatado);
+
     if (resultado) {
       const enderecoCep: EnderecoCep = {
         cep: resultado.cep,
@@ -42,17 +58,13 @@ export default function Inicio({ navigation }: any) {
         siafi: resultado.siafi,
       };
       const cepGuardado = await AsyncStorage.getItem('cepUsuario');
-      console.log("CEP Guardado: ", cepGuardado)
-      console.log("Novo CEP: ", cep)
-      if (cepGuardado === cep) {
-        console.log('Esta chamando o mesmo cep')
+      if (cepGuardado === cepFormatado) {
         navigation.navigate('DetalhesEndereco', {
           endereco: enderecoCep,
           enderecoEditado: true
         });
       } else {
-        console.log('Novo cep guardado', cep)
-        AsyncStorage.setItem('cepUsuario', cep);
+        AsyncStorage.setItem('cepUsuario', cepFormatado);
         navigation.navigate('DetalhesEndereco', {
           endereco: enderecoCep,
           enderecoEditado: false
@@ -60,8 +72,8 @@ export default function Inicio({ navigation }: any) {
       }
     } else {
       toast.show({
-        title: "Erro ao buscar cep",
-        description: "Verifique",
+        title: "Erro ao buscar CEP",
+        description: "Verifique se os dados estão corretos",
         style: styles.toast,
       })
     }
@@ -78,7 +90,7 @@ export default function Inicio({ navigation }: any) {
       <Box marginTop={40} marginBottom={40}>
         <InputComponent
           labelText="CEP"
-          placeholderText="Ex: 000000-000"
+          placeholderText="Digite seu CEP"
           value={cep}
           onChangeText={setCep}
         />
