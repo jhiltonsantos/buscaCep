@@ -1,4 +1,5 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import { THEMES } from '../../config/theme';
 
 export const styles = StyleSheet.create({
   button: {
@@ -16,5 +17,10 @@ export const styles = StyleSheet.create({
   hstack: {
     alignItems: 'center',
     justifyContent: 'flex-start',
+  },
+  text: {
+    fontFamily: 'Epilogue-Medium',
+    color: THEMES.colors.purple[800],
+    marginLeft: 10,
   },
 });

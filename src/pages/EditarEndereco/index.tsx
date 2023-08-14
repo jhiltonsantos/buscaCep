@@ -8,13 +8,11 @@ import { inputsEditar } from '../../mocks/inputsEditar';
 import { useEditarEndereco } from '../../hooks/useEditarEndereco';
 
 import { styles } from './styles';
-import React, { useState } from 'react';
+import React from 'react';
 import SelectDropdown from 'react-native-select-dropdown';
 import { estados } from '../../constants/estados';
 
-import ArrowUpIcon from '../../assets/icons/arrow-up.svg';
 import ArrowDownIcon from '../../assets/icons/arrow-down.svg';
-import SeletorModalComponent from '../../components/SelectListComponent';
 
 
 export default function EditarEndereco({ navigation }: any) {
@@ -26,14 +24,17 @@ export default function EditarEndereco({ navigation }: any) {
     setEstadoSelecionado
   } = useEditarEndereco({ navigation });
 
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
-
   return (
     <VStack style={styles.container} alignItems="start">
       <HeaderComponent
         textTitulo="Editar Endereço"
         marginTop={20}
-        onPress={() => { navigation.goBack() }}
+        onPress={() => {
+          navigation.replace('DetalhesEndereco', {
+            endereco: enderecoEditar,
+            enderecoEditado: true
+          });
+        }}
       />
 
       <Box marginTop={20} marginBottom={20}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { HStack, ITextProps, Image, Divider } from 'native-base';
+import { HStack, ITextProps, Image, Divider, Text, VStack } from 'native-base';
 import { TouchableOpacity } from 'react-native';
 import { TituloComponent } from '../TituloComponent';
 
@@ -22,7 +22,11 @@ export function HeaderComponent({
         <ArowLeft width={30} height={30} />
       </TouchableOpacity>
 
-      <TituloComponent text={textTitulo} />
+      <Text fontSize="2xl" style={styles.text}>
+        {textTitulo}
+      </Text>
+
+
     </HStack>
   );
 }

@@ -1,15 +1,16 @@
-import {Text, ITextProps} from 'native-base';
-import {ReactNode} from 'react';
+import { Text, ITextProps } from 'native-base';
+import { ReactNode } from 'react';
+import { styles } from './styles';
 
 interface TituloProps extends ITextProps {
   text: ReactNode;
   boldText?: ReactNode;
 }
 
-export function TituloComponent({text, boldText, ...otherProps}: TituloProps) {
+export function TituloComponent({ text, boldText, ...otherProps }: TituloProps) {
   return (
-    <Text fontSize="3xl" color="purple.800" {...otherProps}>
-      <Text fontWeight="bold">{boldText}</Text>
+    <Text fontSize="3xl" style={styles.text} {...otherProps}>
+      <Text style={styles.textBold}>{boldText}</Text>
       {text}
     </Text>
   );

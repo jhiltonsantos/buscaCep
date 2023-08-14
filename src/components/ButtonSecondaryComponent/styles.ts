@@ -1,5 +1,5 @@
-import {StyleSheet} from 'react-native';
-import {THEMES} from '../../config/theme';
+import { StyleSheet } from 'react-native';
+import { THEMES } from '../../config/theme';
 
 export const styles = StyleSheet.create({
   button: {
@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
   },
   text: {
     fontSize: THEMES.fontSizes.md,
-    fontWeight: THEMES.fontWeights.semibold,
+    fontFamily: 'Epilogue-SemiBold',
     margin: 3,
   },
 });
