@@ -2,11 +2,11 @@
 <h1 align="center">
   <a href="<https://reactnative.dev/>">🔗 React Native</a>
 </h1>
-<p align="center">Um aplicativo de consulta de api - <a href="<https://github.com/marcosmacedoo/teste-tecnico-fido-desenvolvedor-mobile-jr>">🔗Desenvolvido para o teste técnico da Fido | Desenvolvedor Mobile Jr</a></p>
+<p align="center">Um aplicativo de consulta de api - <a href="<https://github.com/marcosmacedoo/teste-tecnico-fido-desenvolvedor-mobile-jr>">🔗 Desenvolvedor Mobile Jr</a></p>
 
 ## Introdução
 
-O App BuscaCEP foi desenvolvimento com React Native CLI. Ao entrar com suas credenciais de conta, fornecidas pelo <a href="<https://64d4f66fb592423e4694f420.mockapi.io/api/v1/>">MockAPI</a> no teste técnico, o usuário pode inserir um CEP que é consultado na API da <a href="<https://viacep.com.br/>">ViaCEP</a>. Os dados do endereço recebido é inserido nos dados do cliente, onde o usuário pode consultar e editar o endereço.
+O App BuscaCEP foi desenvolvimento com React Native CLI. Ao entrar com suas credenciais de conta, fornecidas pelo <a href="<https://64d4f66fb592423e4694f420.mockapi.io/api/v1/>">MockAPI</a>, o usuário pode inserir um CEP que é consultado na API da <a href="<https://viacep.com.br/>">ViaCEP</a>. Os dados do endereço recebido é inserido nos dados do cliente, onde o usuário pode consultar e editar o endereço.
 
 ## Principais Recursos
 
@@ -18,7 +18,7 @@ O App BuscaCEP foi desenvolvimento com React Native CLI. Ao entrar com suas cred
 
 ## Protótipo de Interface
 
-A interface do aplicativo foi projetada com base em um <a href="<https://www.figma.com/file/2823d5LCnlZVepEPD4ugNU/Teste-t%C3%A9cnico-da-Fido-%7C-Desenvolvedor-Mobile-Jr?type=design&node-id=0-1&mode=design&t=nV1ShllOWbSura9k-0>">protótipo</a> disponibilizado no teste técnico.
+A interface do aplicativo foi projetada com base em um <a href="<https://www.figma.com/file/2823d5LCnlZVepEPD4ugNU/Teste-t%C3%A9cnico-da-Fido-%7C-Desenvolvedor-Mobile-Jr?type=design&node-id=0-1&mode=design&t=nV1ShllOWbSura9k-0>">protótipo</a>.
 
 ## Tecnologias Utilizadas
 
